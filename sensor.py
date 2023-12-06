@@ -1,5 +1,6 @@
 # raspberry python script
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
+#ssp homey
 pubkey = "ABCDEFGHJIKL123456789"  # Public Key
 privkey = "ABCDEFGHJIKL123456789" # Private Key
 token = "ABCDEFGHJIKL123456789" # Token
