@@ -7,19 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
-
+    Button button2;
+    Button button3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnPage1 = findViewById(R.id.btnPage1);
-        Button btnPage2 = findViewById(R.id.btnPage2);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
 
 
-        btnPage1.setOnClickListener(new View.OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
@@ -27,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnPage2.setOnClickListener(new View.OnClickListener() {
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivity3.class);
                 startActivity(intent);
             }
-        });
+       });
     }
 }
