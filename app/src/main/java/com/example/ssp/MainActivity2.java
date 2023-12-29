@@ -81,9 +81,9 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
     public void run (String command) {
-        String hostname = "130.237.177.206";
+        String hostname = "192.168.0.100";
         String username = "pi";
-        String password = "IoT@2021";
+        String password = "pi";
         try
         {
             ch.ethz.ssh2.Connection conn = new Connection(hostname); //init connection
