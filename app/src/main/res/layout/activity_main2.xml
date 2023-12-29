@@ -44,15 +44,15 @@
             android:layout_marginEnd="-38dp"
             android:layout_marginRight="-38dp"
             android:layout_marginBottom="315dp"
-            android:text=" Home Temparature :"
+            android:text=" Home Temperature :"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="178dp"
-            android:layout_height="46dp"
+            android:id="@+id/txtOutdoorLightning"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
@@ -62,16 +62,16 @@
             android:layout_marginStart="34dp"
             android:layout_marginLeft="34dp"
             android:layout_marginTop="259dp"
-            android:layout_marginEnd="146dp"
-            android:layout_marginRight="146dp"
-            android:layout_marginBottom="155dp"
-            android:text="Lightning  : OFF"
+            android:layout_marginEnd="145dp"
+            android:layout_marginRight="145dp"
+            android:layout_marginBottom="283dp"
+            android:text="Lightning  : "
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/txtHeater"
             android:layout_width="wrap_content"
             android:layout_height="112dp"
             android:layout_alignParentStart="true"
@@ -86,7 +86,7 @@
             android:layout_marginEnd="142dp"
             android:layout_marginRight="142dp"
             android:layout_marginBottom="113dp"
-            android:text="Heater : OFF"
+            android:text="Heater :"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -124,6 +124,7 @@
             android:layout_marginEnd="34dp"
             android:layout_marginRight="34dp"
             android:layout_marginBottom="286dp"
+            android:textColor="#0E0E0E"
             android:textSize="24sp" />
 
         <Switch
@@ -142,6 +143,48 @@
             android:layout_marginBottom="124dp"
             android:textSize="24sp" />
 
+        <TextView
+            android:id="@+id/txtLightOff"
+            android:layout_width="76dp"
+            android:layout_height="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="166dp"
+            android:layout_marginLeft="166dp"
+            android:layout_marginTop="262dp"
+            android:layout_marginEnd="118dp"
+            android:layout_marginRight="118dp"
+            android:layout_marginBottom="269dp"
+            android:text="OFF"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtHeaterOff"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="170dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="418dp"
+            android:layout_marginEnd="142dp"
+            android:layout_marginRight="142dp"
+            android:layout_marginBottom="131dp"
+            android:text="OFF"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -151,7 +194,7 @@
 
     <Button
         android:id="@+id/bkh1button"
-        android:layout_width="wrap_content"
+        android:layout_width="156dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="false"
         android:layout_alignParentLeft="true"
@@ -161,9 +204,10 @@
         android:layout_alignParentBottom="false"
         android:layout_marginLeft="-2dp"
         android:layout_marginTop="-4dp"
-        android:layout_marginRight="291dp"
+        android:layout_marginRight="257dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Dashboard"
         android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
 </RelativeLayout>
