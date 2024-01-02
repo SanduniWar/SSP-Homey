@@ -2,6 +2,47 @@ import subprocess
 import json
 import re
 import time
+import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
+
+# Set MQTT broker and topic
+broker = "test.mosquitto.org"   # Broker
+pub_topic = "ssp_homey/checkTemp"       # send messages to this topic
+
+############### MQTT section ##################
+
+
+# when connecting to mqtt do this;
+def on_connect(client, userdata, flags, rc):
+    if rc==0:
+       print ("Connection established. Code: "+str(rc))
+    else:
+       print ("Connection failed. Code: " +str(rc))
+
+def on_publish(client, userdata, mid):
+    print ("Published: " + str(mid))
+
+#def on_disconnect(client, userdata, rc):
+ #   if rc != 0:
+#       print ("Unexpected disonnection. Code: " +str(rc))
+ #   else:
+  #      print ("Disconnected. Code: " + str(rc))
+    
+
+def on_log(client, userdata, level, buf):               # Message is in buf
+    print ("MQTT Log: " + str(buf))
+
+# Connect functions for MQTT
+client = mqtt.Client()
+client.on_connect = on_connect
+#client.on_disconnect = on_disconnect
+client.on_publish = on_publish
+client.on_log = on_log
+
+# Connect to MQTT
+print("Attempting to connect to broker " + broker)
+client.connect(broker)  # Broker address, port and keepalive 
+client.loop_start()
 
 while True:
     try:
@@ -21,28 +62,15 @@ while True:
 
         # Parse the JSON
         data = json.loads(json_data)
-
-        # Access the temperature value
-        temperature_value = float(data["temperature"])
-        # Check if temperature is greater than 22.5
-        #if temperature_value > 21.5:
-            # Turn on the device
-            # Turn on the device
-            #subprocess.run(['tdtool', '--on', '2'])
-           # print("Device turned ON")
-
-        #else:
-            # Turn off the device
-           # subprocess.run(['tdtool', '--off', '2'])
-            #print("Device turned OFF")
-
-        # Print the temperature value
-        print("Temperature:", temperature_value)
+        temperature_value = str(data["temperature"])
+        print ("data"+ str(temperature_value))
+        #temperature_value = str(data["temperature"])
+        client.publish(pub_topic, str(temperature_value))
 
     except Exception as e:
         print("Error:", e)
 
-    # Add a delay before the next iteration (e.g., 10 seconds)
-    time.sleep(10)
+    # Add a delay before the next iteration 
+    time.sleep(2.0)
 
 
