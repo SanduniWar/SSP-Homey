@@ -52,8 +52,8 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="242dp"
-            android:layout_height="73dp"
+            android:layout_width="227dp"
+            android:layout_height="86dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="false"
@@ -61,10 +61,11 @@
             android:layout_marginLeft="86dp"
             android:layout_marginTop="53dp"
             android:layout_marginEnd="88dp"
-            android:layout_marginRight="18dp"
+            android:layout_marginRight="33dp"
             android:layout_marginBottom="277dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Plant Moisture Level"
+            android:text="Plant Moisture          Level"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -75,9 +76,26 @@
             android:layout_height="553dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="-91dp"
+            android:layout_marginRight="-8dp"
+            android:layout_marginBottom="-104dp"
             app:srcCompat="@drawable/br" />
+
+        <TextView
+            android:id="@+id/txtWaterLevel"
+            android:layout_width="251dp"
+            android:layout_height="178dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="false"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="192dp"
+            android:layout_marginRight="50dp"
+            android:textAlignment="center"
+            android:textColor="#485DD3"
+            android:textSize="48sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 </RelativeLayout>
