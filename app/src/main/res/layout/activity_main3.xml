@@ -11,7 +11,8 @@
     android:layout_alignParentEnd="false"
     android:layout_alignParentRight="false"
     android:layout_alignParentBottom="false"
-    android:background="@drawable/homeb1">
+    android:background="@drawable/homeb1"
+    android:backgroundTint="#07807A7A">
 
     <Button
         android:id="@+id/bkh2button"
