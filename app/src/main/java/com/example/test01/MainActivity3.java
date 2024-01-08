@@ -6,9 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MainActivity3 extends AppCompatActivity {
     Button bkh2button;
+    TextView txvWaterLevel;
+
+    private static final String broker = "tcp://test.mosquitto.org:1883";
+    private static final String topicForWaterLevel = "ssp_homey/checkWaterLevel";  // Topic for Plant Water Level
+
+    private static final String clientId = MqttClient.generateClientId();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +30,8 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 
         bkh2button = findViewById(R.id.bkh2button);
+        txvWaterLevel = findViewById(R.id.txtWaterLevel);
+        connectToMQTTBroker();
 
         bkh2button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,5 +40,48 @@ public class MainActivity3 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void connectToMQTTBroker() { // change
+        try {
+            MqttClient mqttClient = new MqttClient(broker, clientId, new MemoryPersistence());
+            MqttConnectOptions connectOptions = new MqttConnectOptions();
+            connectOptions.setCleanSession(true);
+
+            mqttClient.connect(connectOptions);
+
+            mqttClient.setCallback(new MqttCallback() {
+                @Override
+                public void connectionLost(Throwable cause) {
+
+                }
+
+                @Override
+                public void messageArrived(String topic, MqttMessage message) throws Exception {
+
+                    String waterLevelMsg = new String(message.getPayload());   // Update the textview
+                    System.out.println("Incoming message: " + waterLevelMsg);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateTextView(waterLevelMsg);
+                        }
+                    });
+                }
+                @Override
+                public void deliveryComplete(IMqttDeliveryToken token) {
+                }
+            });
+
+            // Subscribe to the topic
+            mqttClient.subscribe(topicForWaterLevel, 0);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateTextView(String waterLevel) {
+        txvWaterLevel.setText(waterLevel);
     }
 }
