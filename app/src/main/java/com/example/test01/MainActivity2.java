@@ -42,7 +42,9 @@ public class MainActivity2 extends AppCompatActivity {
         Switch heaterToggleButton = findViewById(R.id.btnToggle2);
         Switch lightToggleButton = findViewById(R.id.btnToggle1);
 
-        connectToMQTT("off");
+        connectToMQTT("off"); //Connection setup
+
+        //Heater turn on/off
         heaterToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -60,6 +62,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        //Light turn on/off
         lightToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -86,17 +89,15 @@ public class MainActivity2 extends AppCompatActivity {
         });
     }
 
-
     private void connectToMQTT(String HStatus) {
         try {
 
             MqttClient mqttClient = new MqttClient(broker, clientId, new MemoryPersistence());
             MqttConnectOptions connectOptions = new MqttConnectOptions();
             connectOptions.setCleanSession(true);
-
             mqttClient.connect(connectOptions);
 
-
+            //For message handling
             mqttClient.setCallback(new MqttCallback() {
                 @Override
                 public void connectionLost(Throwable cause) {
@@ -109,7 +110,8 @@ public class MainActivity2 extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            updateTextView(tempValue);
+
+                            updateTextView(tempValue); //Update the textView with temp
                         }
                     });
 
@@ -118,7 +120,7 @@ public class MainActivity2 extends AppCompatActivity {
 
                     temperatureValue = Float.parseFloat(tempValue);
 
-
+                    //Heater turn on depend on the assign temp value
                    if (temperatureValue < 1.0) {
 
                         heaterStatus = "on";
@@ -145,6 +147,7 @@ public class MainActivity2 extends AppCompatActivity {
         txvTemp.setText(temp);
     }
 
+
     private void heaterTurnonOff(String hstatus){
         try {
             MqttClient mqttClient = new MqttClient(broker, clientId, new MemoryPersistence());
@@ -152,7 +155,7 @@ public class MainActivity2 extends AppCompatActivity {
             connectOptions.setCleanSession(true);
 
             mqttClient.connect(connectOptions);
-            mqttClient.publish(topicForHeater, hstatus.getBytes(),0, false);
+            mqttClient.publish(topicForHeater, hstatus.getBytes(),0, false); //Publish data
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -166,7 +169,7 @@ public class MainActivity2 extends AppCompatActivity {
             connectOptions.setCleanSession(true);
 
             mqttClient.connect(connectOptions);
-            mqttClient.publish(topicForLight, lstatus.getBytes(),0, false);
+            mqttClient.publish(topicForLight, lstatus.getBytes(),0, false); //Publish data
         }catch(Exception ex){
             ex.printStackTrace();
         }

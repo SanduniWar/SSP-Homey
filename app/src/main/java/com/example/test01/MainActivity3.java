@@ -29,7 +29,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         bkh2button = findViewById(R.id.bkh2button);
         txvWaterLevel = findViewById(R.id.txtWaterLevel);
-        connectToMQTT();
+        connectToMQTT(); //Connection setup
 
         bkh2button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,12 +56,13 @@ public class MainActivity3 extends AppCompatActivity {
                 @Override
                 public void messageArrived(String topic, MqttMessage message) throws Exception {
 
-                    String waterLevelMsg = new String(message.getPayload());   // Update the textview
+                    String waterLevelMsg = new String(message.getPayload());
                     System.out.println("Water Level Message: " + waterLevelMsg);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            updateTextView(waterLevelMsg);
+
+                            updateTextView(waterLevelMsg); // Update the textView of plan moisture level
                         }
                     });
                 }
@@ -70,7 +71,6 @@ public class MainActivity3 extends AppCompatActivity {
                 }
             });
 
-            // Subscribe to the topic
             mqttClient.subscribe(topicForWaterLevel, 0);
 
         } catch (Exception e) {
@@ -79,6 +79,7 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     private void updateTextView(String waterLevel) {
+
         txvWaterLevel.setText(waterLevel);
     }
 }
