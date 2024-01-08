@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/homeb1">
+
+    <!-- Content Section -->
+
+<TextView
+android:id="@+id/txtOutdoorLightning2"
+android:layout_width="215dp"
+android:layout_height="44dp"
+android:layout_alignParentStart="true"
+android:layout_alignParentLeft="true"
+android:layout_alignParentTop="true"
+android:layout_alignParentEnd="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentBottom="true"
+android:layout_marginStart="34dp"
+android:layout_marginLeft="34dp"
+android:layout_marginTop="259dp"
+android:layout_marginEnd="162dp"
+android:layout_marginRight="162dp"
+android:layout_marginBottom="428dp"
+android:text="Lightning  : "
+android:textColor="#000000"
+android:textSize="24sp"
+android:textStyle="bold" />
+
+<RelativeLayout
+android:layout_width="wrap_content"
+android:layout_height="598dp"
+android:layout_alignParentStart="true"
+android:layout_alignParentLeft="true"
+android:layout_alignParentTop="true"
+android:layout_alignParentEnd="false"
+android:layout_alignParentRight="true"
+android:layout_alignParentBottom="true"
+android:layout_marginStart="24dp"
+android:layout_marginLeft="24dp"
+android:layout_marginTop="118dp"
+android:layout_marginEnd="27dp"
+android:layout_marginRight="27dp"
+android:layout_marginBottom="127dp"
+android:background="#FFFFFF">
+
+
+<TextView
+    android:id="@+id/textView4"
+    android:layout_width="368dp"
+    android:layout_height="46dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="28dp"
+    android:layout_marginLeft="28dp"
+    android:layout_marginTop="98dp"
+    android:layout_marginEnd="-38dp"
+    android:layout_marginRight="-38dp"
+    android:layout_marginBottom="315dp"
+    android:text=" Home Temperature :"
+    android:textColor="#000000"
+    android:textSize="24sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/txtOutdoorLightning"
+    android:layout_width="wrap_content"
+    android:layout_height="55dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="34dp"
+    android:layout_marginLeft="34dp"
+    android:layout_marginTop="259dp"
+    android:layout_marginEnd="145dp"
+    android:layout_marginRight="145dp"
+    android:layout_marginBottom="283dp"
+    android:text="Lightning  : "
+    android:textColor="#000000"
+    android:textSize="24sp"
+    android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtHeater"
+        android:layout_width="wrap_content"
+        android:layout_height="112dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="418dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginRight="142dp"
+        android:layout_marginBottom="113dp"
+        android:text="Heater      :"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtIndoorTemp"
+        android:layout_width="86dp"
+        android:layout_height="58dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="292dp"
+        android:layout_marginLeft="292dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="-20dp"
+        android:layout_marginRight="-20dp"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+<Switch
+    android:id="@+id/btnToggle1"
+    android:layout_width="63dp"
+    android:layout_height="118dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="263dp"
+    android:layout_marginTop="239dp"
+    android:layout_marginEnd="34dp"
+    android:layout_marginRight="34dp"
+    android:layout_marginBottom="286dp"
+    android:textColor="#0E0E0E"
+    android:textSize="24sp" />
+
+<Switch
+    android:id="@+id/btnToggle2"
+    android:layout_width="67dp"
+    android:layout_height="116dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="260dp"
+    android:layout_marginTop="402dp"
+    android:layout_marginEnd="31dp"
+    android:layout_marginRight="31dp"
+    android:layout_marginBottom="124dp"
+    android:checked="false"
+    android:textSize="24sp" />
+
+
+</RelativeLayout>
+
+<RelativeLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_centerInParent="true" />
+
+<Button
+android:id="@+id/bkh1button"
+android:layout_width="161dp"
+android:layout_height="wrap_content"
+android:layout_alignParentStart="false"
+android:layout_alignParentLeft="true"
+android:layout_alignParentTop="true"
+android:layout_alignParentEnd="false"
+android:layout_alignParentRight="true"
+android:layout_marginLeft="-4dp"
+android:layout_marginTop="2dp"
+android:layout_marginRight="254dp"
+android:background="#D1D4E4"
+android:fontFamily="sans-serif-medium"
+android:text="   Dashboard"
+android:textColor="#000000"
+android:textSize="20sp"
+android:textStyle="bold" />
+
+    </RelativeLayout>
